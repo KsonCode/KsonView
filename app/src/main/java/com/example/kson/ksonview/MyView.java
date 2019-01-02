@@ -11,8 +11,9 @@ import android.view.View;
 public class MyView extends View {
 
     private Paint mPaint;//画笔
-    private int circleX;
-    private int circleY;
+    private int circleX;//圆的x轴起始坐标
+    private int circleY;//圆的y轴起始坐标
+    private int mRaduis = 100;//圆半径，px
 
     /**
      * new 一个控件的调用的
