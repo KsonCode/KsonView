@@ -103,7 +103,7 @@ public class MyView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         System.out.println("重绘："+"==============");
-        canvas.drawCircle(circleX,circleY,100,mPaint);
+        canvas.drawCircle(circleX,circleY,mRaduis,mPaint);
 
 
     }
