@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * 流式布局，标签动态添加，动态换行
+ */
 public class FlowLayout extends ViewGroup {
 
     public void add(View view) {

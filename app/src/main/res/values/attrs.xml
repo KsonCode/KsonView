@@ -6,7 +6,8 @@
         <attr name="color" format="color"/>
     </declare-styleable>
 
-    <declare-styleable name="CircleImageView">
-
+    <declare-styleable name="SearchView">
+        <attr name="searchColor" format="color"/>
+        <attr name="searchSize" format="dimension"/>
     </declare-styleable>
 </resources>
