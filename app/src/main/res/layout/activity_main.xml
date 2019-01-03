@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:myview="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="50dp"
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:visibility="gone"
         android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,8 +17,22 @@
 
     <com.example.kson.ksonview.MyView
         android:id="@+id/myview"
+        android:visibility="visible"
+        myview:radius="300px"
+        myview:color="@android:color/black"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="100dp" />
+
+
+
+    <com.example.kson.ksonview.CircleRoundImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher"/>
+
+
+
 
     <!--<LinearLayout-->
         <!--android:layout_width="match_parent"-->

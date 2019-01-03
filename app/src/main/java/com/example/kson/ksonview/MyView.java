@@ -1,6 +1,7 @@
 package com.example.kson.ksonview;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -14,6 +15,7 @@ public class MyView extends View {
     private int circleX;//圆的x轴起始坐标
     private int circleY;//圆的y轴起始坐标
     private int mRaduis = 100;//圆半径，px
+    private int mColor = Color.RED;
 
     /**
      * new 一个控件的调用的
@@ -40,7 +42,7 @@ public class MyView extends View {
      */
     public MyView(Context context,  AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
+        init(context,attrs);
     }
 
 //    public MyView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
@@ -50,9 +52,19 @@ public class MyView extends View {
     /**
      * 初始化对象的方法
      */
-    private  void init(){
+    private  void init(Context context,AttributeSet attrs){
+        //对自定义属性初始化
+        TypedArray typedArray = context.obtainStyledAttributes(attrs,R.styleable.MyView);
+        mRaduis = typedArray.getDimensionPixelSize(R.styleable.MyView_radius,100);//id，默认值100
+        mColor = typedArray.getColor(R.styleable.MyView_color,Color.RED);
+
+        //初始化成功后，处理
+        if (typedArray!=null){
+            typedArray.recycle();//回收资源
+        }
+
         mPaint = new Paint();
-        mPaint.setColor(Color.RED);//设置画笔为红色
+        mPaint.setColor(mColor);//设置画笔为红色
         mPaint.setAntiAlias(true);//抗锯齿
 //        mPaint.setStyle(Paint.Style.FILL);//实心
         mPaint.setStyle(Paint.Style.STROKE);//空心
@@ -128,6 +140,7 @@ public class MyView extends View {
                 circleY = (int) event.getY();
 
                 invalidate();
+
 
                 break;
             case MotionEvent.ACTION_UP://抬起
